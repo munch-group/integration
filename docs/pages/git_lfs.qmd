@@ -1,0 +1,24 @@
+
+
+# Git LFS
+
+Git Large File Storage
+
+## Download
+
+https://git-lfs.com/
+
+## Configure
+
+https://docs.github.com/en/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage
+
+## Managing files
+
+::: {.callout-warning}
+
+Managing files is for the PI only. 
+
+:::
+
+
+https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository
