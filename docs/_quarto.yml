@@ -57,7 +57,7 @@ website:
         - section: "Overview"
           contents:
             - pages/overview.ipynb
-            - pages/git_submodules.ipynb
+            - pages/git_submodules.qmd
             - pages/git_lfs.qmd
             - pages/gwf_workflows.qmd
 

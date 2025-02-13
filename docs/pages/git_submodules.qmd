@@ -5,9 +5,27 @@ Submodules are useful if you have analysis components that are used across many 
 
 The repos can each have their own adjustable workflow as decribed [here](https://gwf.app/guide/patterns/#dynamically-generating-a-workflow), that are then easily put together in a larger workflow as described [here](https://gwf.app/guide/patterns/#large-workflows).
 
-## Add a submodule
 
-clone repository as submodule:
+::: { .callout-important }
+
+Make sure you install the current version of Git in your environments. The one on the cluster is ancient.
+
+```txt
+conda install -c conda-forge git
+```
+
+I also set these configs for each environment to get nicer/safer commands (commands below assume these are set):
+
+
+```txt
+git config --global diff.submodule log
+git config status.submodulesummary 1
+git config push.recurseSubmodules check
+```
+
+:::
+
+## TLDR;
 
 ```{.bash filename="TLDR; add_submodule.sh"}
 REPO=$1
@@ -29,32 +47,22 @@ git submodule update ${REPO} # and pull the current state of the submodule repo
 git add .gitmodules ${REPO} && git commit -m "Added ${REPO} as submodule" && git push # track .gitmodules
 # checkout main(or some other branch)
 cd ${REPO} && git checkout main && cd ..  # checkout main(or some other branch)
+# configs
+git config --global diff.submodule log
+git config status.submodulesummary 1
+git config push.recurseSubmodules check
 ```
 
 
 
 
-## Preliminaries
-
-Make sure you install the current version of Git in your environments. The one on the cluster is ancient.
-
-```{.bash filename="Terminal"}
-conda install -c conda-forge git
-```
-
-I also set these configs for each environment to get nicer/safer commands (commands below assume these are set):
-
-    git config --global diff.submodule log
-    git config status.submodulesummary 1
-    git config push.recurseSubmodules check
+## Add a submodule
 
 Now, say you have a project repo called "umbrella" that will contain other projects and that you have cloned that:
 
     git clone git@github.com:kaspermunch/umbrella.git
 
-## Add a submodule
-
-clone repository as submodule:
+You want to use an rfmix pipeline in your project. So you clone this repository as submodule:
 
 ```{.bash filename="Terminal"}
 git submodule add git@github.com:munch-group/rfmix.git
